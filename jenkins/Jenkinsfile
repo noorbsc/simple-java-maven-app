@@ -1,7 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Welcome') {
+        stage('Welcome Branch') {
+            when {
+                expression {
+                    GIT_BRANCH == 'feature/test-jenkins-branch'
+                }
+            }
             steps {
                 echo 'welcome to this pipeline'
             }
