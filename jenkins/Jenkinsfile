@@ -8,7 +8,17 @@ pipeline {
                 }
             }
             steps {
-                echo 'welcome to this pipeline'
+                echo 'welcome to this pipeline in feature branch '
+            }
+        }
+        stage('Welcome Main') {
+            when {
+                expression {
+                    GIT_BRANCH == 'main'
+                }
+            }
+            steps {
+                echo 'welcome to this pipeline in Main branch '
             }
         }
         stage('Build') {
