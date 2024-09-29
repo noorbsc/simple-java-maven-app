@@ -1,7 +1,11 @@
 pipeline {
     agent any
+
+    tools {
+        maven 'mvn'
+    }
     stages {
-        stage('Welcome Branch') {
+        stage('Welcome Branch with tools') {
             when {
                 expression {
                     GIT_BRANCH == 'feature/test-jenkins-branch'
